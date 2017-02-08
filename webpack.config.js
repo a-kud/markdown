@@ -25,11 +25,6 @@ var config = {
             },
         ],
     },
-    /*resolveLoader: {
-        root: [
-            path.join(__dirname, "node_modules"),
-        ],
-    },*/
     resolve: {
         modules: [
             path.join(__dirname, "node_modules"),
@@ -38,7 +33,7 @@ var config = {
     plugins: [
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
+        new webpack.NoEmitOnErrorsPlugin(),
     ]
 };
 
