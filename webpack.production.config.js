@@ -12,31 +12,26 @@ var config = {
         publicPath: "/build/",
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loaders: ["babel"],
+                use: ["babel-loader"],
             },
             {
                 test: /\.sass$/,
-                loaders: ["style-loader", "css-loader", "sass-loader"],
+                use: ["style-loader", "css-loader", "sass-loader"],
             },
         ],
     },
-    resolveLoader: {
-        root: [
-            path.join(__dirname, "node_modules"),
-        ],
-    },
     resolve: {
-        root: [
+        modules: [
             path.join(__dirname, "node_modules"),
         ],
     },
     plugins: [
-        new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.NoErrorsPlugin(),
+        new webpack.optimize.OccurrenceOrderPlugin(),
+        new webpack.NoEmitOnErrorsPlugin(),
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify('production')
