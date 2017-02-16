@@ -25,7 +25,7 @@ var config = {
             },
             {
                 test: /\.pug$/,
-                use: ["pug-html-loader?pretty"],
+                use: ["pug-loader"],
             },
         ],
     },
@@ -38,15 +38,15 @@ var config = {
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: JSON.stringify('production')
+            "process.env": {
+                NODE_ENV: JSON.stringify("production")
           }
         }),
-        new webpack.optimize.UglifyJsPlugin(),
+        new webpack.optimize.UglifyJsPlugin({minimize: true}),
         new HtmlWebpackPlugin({
             filename: "index.html",
             template: "views/index.pug",
-            title: "Tic Tac Toe"
+            title: "Markdown Viewer"
         }),
     ]
 };
