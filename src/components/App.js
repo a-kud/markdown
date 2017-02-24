@@ -1,5 +1,6 @@
 import React from "react";
 import marked from "marked"
+import InputMarkdown from "./Input";
 
 class App extends React.Component {
     constructor(props) {
@@ -8,10 +9,10 @@ class App extends React.Component {
             value: "",
         };
 
-        this.onTextareaChange = this.onTextareaChange.bind(this);
+        this.handleTextareaChange = this.handleTextareaChange.bind(this);
     }
 
-    onTextareaChange(e) {
+    handleTextareaChange(e) {
         this.setState({
             value: e.target.value,
         })
@@ -20,9 +21,7 @@ class App extends React.Component {
     render() {
         return (
             <div className="app">
-                <label id="markdown">Enter markdown here:
-                    <textarea value={this.state.value} onChange={this.onTextareaChange}></textarea>
-                </label>
+                <InputMarkdown value={this.state.value} onChange={this.handleTextareaChange}/>
                 <div id="output" dangerouslySetInnerHTML={{__html: marked(this.state.value)}}></div>
             </div>
         );
