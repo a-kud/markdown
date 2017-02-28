@@ -21,7 +21,8 @@ class App extends React.Component {
     render() {
         return (
             <div className="app">
-                <InputMarkdown value={this.state.value} onChange={this.handleTextareaChange}/>
+                <InputMarkdown value={this.state.value}
+                               onChange={this.handleTextareaChange}/>
                 <RenderMarkdown value={this.state.value} />
             </div>
         );
