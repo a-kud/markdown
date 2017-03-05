@@ -24,7 +24,14 @@ npm run production
 ```
 
 Start the development server with this command:
+---
 
 ```
 npm start
+```
+
+Deploy application to github pages
+---
+```
+npm run deploy
 ```
